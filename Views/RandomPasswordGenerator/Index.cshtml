@@ -1,0 +1,49 @@
+﻿@model RandomPasswordModels;
+
+
+@{
+    ViewData["Title"] = "Generate your Random Password";
+}
+
+<div class="text-center form-control">
+    <form method="post" action="~/RandomPasswordGenerator/GetPassword">
+        <div class="mb-3">
+            <div>
+                <label for="length" class="form-label">Password Length: </label>
+            </div>
+            <div>
+                <input type="number" class="align-content-md-center" id="length" name="length" value="12">
+            </div>
+        </div>
+        <div class="mb-3 form-check">
+            <div>
+                <label class="form-check-label" for="upperCase">Do you want uppercase Letters in your password?</label>
+            </div>
+            <div class="align-content-center">
+                <input type="checkbox" id="upperCase" name="upperCase" value="true" checked>
+            </div>
+        </div>
+        <div class="mb-3 form-check">
+            <div>
+                <label class="form-check-label" for="specialCharacter">Do you want Special Character in the password?</label>
+            </div>
+            <div class="align-content-center">
+                <input type="checkbox" id="specialCharacter" name="specialCharacter" value="true" checked>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" type="submit">Generate Password</button>
+    </form>
+    <div class="text-center">
+        <h3>
+            Your generated password is:
+        </h3>
+        </br>
+        <h2 style="color:blue" id="myInput">
+           <p> @Model.Password  </p>
+        </h2>
+        <div>
+            <button onclick="myFunction()">Copy your password here...</button>
+        </div>
+    </div>
+</div>
